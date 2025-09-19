@@ -33,11 +33,11 @@ class Task(BaseModel):
     
     def display_with_checkbox(self) -> str:
         """
-        Return the task description with checkbox indicator, task ID, and agent info.
-        Both ID and agent are stored in machine-readable format for proper retrieval.
+        Return the task description with checkbox indicator and agent info.
+        The ID is omitted from the markdown output.
         """
         checkbox = "[X]" if self.completed else "[ ]"
-        return f"{checkbox} {self.description} ##ID:{self.id}## ##AGENT:{self.agent if self.agent else 'None'}##"
+        return f"{checkbox} {self.description} ##AGENT:{self.agent if self.agent else 'None'}##"
 
 
 class Phase(BaseModel):

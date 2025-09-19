@@ -22,7 +22,7 @@ Example usage:
 
 import time
 from datetime import datetime
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Optional
 
 class TaskRunner:
     """
@@ -54,8 +54,8 @@ class TaskRunner:
         self,
         agent: Any,
         task_description: str,
-        args: Tuple = (),
-        kwargs: Dict = {},
+        *args,
+        **kwargs,
     ) -> str:
         """
         Execute the task using the provided agent.
@@ -128,9 +128,9 @@ class TaskRunner:
 def run_task_without_timeout(
     agent: Any,
     task_description: str,
-    args: Tuple = (),
-    kwargs: Dict = {},
+    *args,
     time_start: Optional[datetime] = None,
+    **kwargs,
 ) -> str:
     """
     Run a task using the specified agent, without a timeout.
